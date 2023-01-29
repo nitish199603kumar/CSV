@@ -1,7 +1,14 @@
-package in.nitish.readcsv;
+package in.nitish.readcsvmain;
 
 import java.io.FileReader;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
+
 
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
@@ -16,7 +23,8 @@ public class ReadCsv {
 		readDataLineByLine(str);
 		System.out.println("====================================");
 		readAllDataAtOnce(str);
-
+		System.out.println("************************************");
+//		csvReader(str);
 	}
 	
 	// Java code to illustrate reading a
@@ -38,6 +46,8 @@ public class ReadCsv {
 			// we are going to read data line by line
 			while ((nextRecord = csvReader.readNext()) != null) {
 				for (String cell : nextRecord) {
+					
+					
 					System.out.print(cell + "\t");	
 				}
 				System.out.println();
